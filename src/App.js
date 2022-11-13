@@ -81,6 +81,7 @@ function App() {
                 key={d.id}
                 title={`${d.title}`}
                 body={`${d.body}`}
+                onDelete={() => handleDeletePost(d.id, idx)}
               />
             ))}
             {newPosts.map((d, idx) => (
@@ -88,6 +89,7 @@ function App() {
               key={d.id}
               title={d.title}
               body={d.body}
+              onDelete={() => handleDeletePost(d.id, idx)}
               />
             ))}
           </List>
