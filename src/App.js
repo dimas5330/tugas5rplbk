@@ -44,6 +44,26 @@ function App() {
     setIsDialogOpen(false);
   };
 
+  const handleDeletePost = (id, idx) => {
+    async function delPost() {
+      await axios
+        .delete(`${BASE_API_URL}/posts/${id}`)
+        .then((res) => {
+          let arr = posts;
+          if (idx !== -1) {
+            arr.splice(idx, 1)
+          }
+          setPosts([...arr]);
+        })
+        .catch((error) => {
+          console.log(error);
+          window.alert(error);
+        })
+    }
+
+    delPost();
+  };
+  
   return (
     <div className="App">
       <div className="list-container">
